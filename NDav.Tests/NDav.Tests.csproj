@@ -62,11 +62,18 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="TestWebDavProcessor.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NDav\NDav.csproj">
+      <Project>{4EE625D8-0A51-42DF-8C64-9CC2E13D2C02}</Project>
+      <Name>NDav</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
