@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NDav", "NDav\NDav.csproj", "{4EE625D8-0A51-42DF-8C64-9CC2E13D2C02}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NDav.Tests", "NDav.Tests\NDav.Tests.csproj", "{65D32F89-BA58-4B61-97A5-449D9AB08CAF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{4EE625D8-0A51-42DF-8C64-9CC2E13D2C02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EE625D8-0A51-42DF-8C64-9CC2E13D2C02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4EE625D8-0A51-42DF-8C64-9CC2E13D2C02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65D32F89-BA58-4B61-97A5-449D9AB08CAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65D32F89-BA58-4B61-97A5-449D9AB08CAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65D32F89-BA58-4B61-97A5-449D9AB08CAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65D32F89-BA58-4B61-97A5-449D9AB08CAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
