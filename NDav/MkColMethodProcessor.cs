@@ -27,6 +27,27 @@ namespace NDav
             {
                 response.StatusCode = HttpStatusCode.MethodNotAllowed;
             }
+            catch (CollectionDoesNotAcceptMembersException)
+            {
+                response.StatusCode = HttpStatusCode.Forbidden;
+            }
+            catch (InsufficientSpaceException)
+            {
+                response.StatusCode = (HttpStatusCode) 507;
+            }
+            catch (ResourceAncestorDoesNotExistException)
+            {
+                response.StatusCode = HttpStatusCode.Conflict;
+            }
+            catch (ResourceAncestorIsNotCollectionException)
+            {
+                response.StatusCode = HttpStatusCode.Conflict;
+            }
+            catch (UnsupportedResourceException)
+            {
+                response.StatusCode = HttpStatusCode.UnsupportedMediaType;
+            }
+
             return response;
         }
     }
