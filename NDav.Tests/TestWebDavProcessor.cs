@@ -9,7 +9,7 @@ namespace NDav.Tests
 {
     public class TestWebDavProcessor
     {
-        public void Test()
+        public void Test_get_request()
         {
             
            // var webdav = new WebDavProcessor();

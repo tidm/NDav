@@ -20,7 +20,8 @@ namespace NDav
 
         private void InitializeMethodProcessors()
         {
-            throw new NotImplementedException();
+            _methodProcessors = new Dictionary<string, WebDavMethodProcessor>(StringComparer.InvariantCultureIgnoreCase);
+            _methodProcessors.Add(WebDavMethods.MkCol, new MkColMethodProcessor(_resourceRepository));
         }
         public async Task<HttpWebResponse> ProcessRequestAsync(HttpWebRequest request)
         {

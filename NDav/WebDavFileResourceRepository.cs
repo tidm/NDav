@@ -13,5 +13,10 @@ namespace NDav
         {
             throw new NotImplementedException();
         }
+
+        public void CreateCollection(Uri uri)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

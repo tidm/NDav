@@ -41,9 +41,11 @@
   <ItemGroup>
     <Compile Include="GetMethodProcessor.cs" />
     <Compile Include="IWebDavResourceRepository.cs" />
+    <Compile Include="MkColMethodProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebDavFileResourceRepository.cs" />
     <Compile Include="WebDavMethodProcessor.cs" />
+    <Compile Include="WebDavMethods.cs" />
     <Compile Include="WebDavProcessor.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

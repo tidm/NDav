@@ -9,6 +9,12 @@ namespace NDav
 {
     public abstract class WebDavMethodProcessor
     {
+        protected readonly IWebDavResourceRepository Repository;
+        protected WebDavMethodProcessor(IWebDavResourceRepository repository)
+        {
+            Repository = repository;
+        }
+
         public abstract Task<HttpWebResponse> ProcessRequestAsync(HttpWebRequest request);
     }
 }
