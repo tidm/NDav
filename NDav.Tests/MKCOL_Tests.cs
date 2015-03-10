@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using NDav.Http;
 using NSubstitute;
 using NSubstitute.Core;
 using Xunit;
@@ -18,8 +19,8 @@ namespace NDav.Tests
         [Fact]
         public async void Successful_request_must_return_201()
         {
-            var request = WebRequest.CreateHttp(BaseUri);
-            request.Method = WebDavMethods.MkCol;
+            var request = new HttpRequest(new Uri(BaseUri), WebDavMethods.MkCol);
+
             var processor = new WebDavProcessor(Substitute.For<IWebDavResourceRepository>());
             var response = await processor.ProcessRequestAsync(request);
             Assert.Equal(HttpStatusCode.Created, response.StatusCode);

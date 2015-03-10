@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using NDav.Http;
 
 namespace NDav
 {
@@ -23,7 +24,7 @@ namespace NDav
             _methodProcessors = new Dictionary<string, WebDavMethodProcessor>(StringComparer.InvariantCultureIgnoreCase);
             _methodProcessors.Add(WebDavMethods.MkCol, new MkColMethodProcessor(_resourceRepository));
         }
-        public async Task<HttpWebResponse> ProcessRequestAsync(HttpWebRequest request)
+        public async Task<HttpResponse> ProcessRequestAsync(HttpRequest request)
         {
             return await _methodProcessors[request.Method].ProcessRequestAsync(request);
         }

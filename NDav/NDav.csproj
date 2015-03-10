@@ -40,6 +40,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GetMethodProcessor.cs" />
+    <Compile Include="Http\HttpRequest.cs" />
+    <Compile Include="Http\HttpResponse.cs" />
     <Compile Include="IWebDavResourceRepository.cs" />
     <Compile Include="MkColMethodProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

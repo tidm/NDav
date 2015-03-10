@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using NDav.Http;
 
 namespace NDav
 {
@@ -14,11 +15,11 @@ namespace NDav
         {
         }
 
-        public override async Task<HttpWebResponse> ProcessRequestAsync(HttpWebRequest request)
+        public override async Task<HttpResponse> ProcessRequestAsync(HttpRequest request)
         {
-            //Repository.CreateCollection(request.RequestUri);
-            //var response = (HttpWebResponse) await request.GetResponseAsync();
-            throw new NotImplementedException();
+            await Repository.CreateCollectionAsync(request.Uri);
+            var response = new HttpResponse {StatusCode = HttpStatusCode.Created};
+            return response;
         }
     }
 }
