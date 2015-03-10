@@ -39,7 +39,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\CollectionDoesNotAcceptMembersException.cs" />
+    <Compile Include="Exceptions\InsufficientSpaceException.cs" />
+    <Compile Include="Exceptions\ResourceAncestorDoesNotExistException.cs" />
+    <Compile Include="Exceptions\ResourceAncestorIsNotCollectionException.cs" />
     <Compile Include="Exceptions\ResourceExistsException.cs" />
+    <Compile Include="Exceptions\UnsupportedResourceException.cs" />
     <Compile Include="GetMethodProcessor.cs" />
     <Compile Include="Http\HttpRequest.cs" />
     <Compile Include="Http\HttpResponse.cs" />
