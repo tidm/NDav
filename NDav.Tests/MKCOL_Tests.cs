@@ -27,8 +27,17 @@ namespace NDav.Tests
         }
 
         [Fact]
-        public void If_request_uri_is_non_null_MKCOL_must_fail()
+        public async void If_request_uri_is_an_existed_resource_MKCOL_must_fail_with_405()
         {
+            var request = new HttpRequest(new Uri(BaseUri + "existed"), WebDavMethods.MkCol);
+            var repo = Substitute.For<IWebDavResourceRepository>();
+            repo.When(x => x.CreateCollectionAsync(new Uri(BaseUri + "existed")))
+                .Do(x => { throw new ResourceExistsException(); });
+
+            var processor = new WebDavProcessor(repo);
+            var response = await processor.ProcessRequestAsync(request);
+
+            Assert.Equal(HttpStatusCode.MethodNotAllowed, response.StatusCode);
         }
 
         [Fact]

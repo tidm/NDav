@@ -17,8 +17,16 @@ namespace NDav
 
         public override async Task<HttpResponse> ProcessRequestAsync(HttpRequest request)
         {
-            await Repository.CreateCollectionAsync(request.Uri);
-            var response = new HttpResponse {StatusCode = HttpStatusCode.Created};
+            HttpResponse response = new HttpResponse();
+            try
+            {
+                await Repository.CreateCollectionAsync(request.Uri);
+                response.StatusCode = HttpStatusCode.Created;
+            }
+            catch (ResourceExistsException)
+            {
+                response.StatusCode = HttpStatusCode.MethodNotAllowed;
+            }
             return response;
         }
     }
