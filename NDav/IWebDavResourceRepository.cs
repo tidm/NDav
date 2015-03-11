@@ -11,6 +11,6 @@ namespace NDav
     public interface IWebDavResourceRepository
     {
         Task CreateCollectionAsync(Uri uri);
-        Stream GetResource(string uri);
+        Task<Stream> GetResourceAsync(Uri uri);
     }
 }

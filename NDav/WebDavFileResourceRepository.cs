@@ -13,11 +13,9 @@ namespace NDav
         {
             throw new NotImplementedException();
         }
-
-        public Stream GetResource(string uri)
+        public Task<Stream> GetResourceAsync(Uri uri)
         {
             throw new NotImplementedException();
         }
-
     }
 }

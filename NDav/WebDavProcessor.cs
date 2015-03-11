@@ -23,10 +23,19 @@ namespace NDav
         {
             _methodProcessors = new Dictionary<string, WebDavMethodProcessor>(StringComparer.InvariantCultureIgnoreCase);
             _methodProcessors.Add(WebDavMethods.MkCol, new MkColMethodProcessor(_resourceRepository));
+            _methodProcessors.Add(WebDavMethods.Get, new GetMethodProcessor(_resourceRepository));
         }
         public async Task<HttpResponse> ProcessRequestAsync(HttpRequest request)
         {
-            return await _methodProcessors[request.Method].ProcessRequestAsync(request);
+            if (_methodProcessors.ContainsKey(request.Method))
+            {
+                return await _methodProcessors[request.Method].ProcessRequestAsync(request);
+            }
+            else
+            {
+                throw new NotImplementedException(string.Format("Request method <{0}> is not implemented.", request.Method));
+            }
+
         }
     }
 
