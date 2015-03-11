@@ -6,6 +6,7 @@ using System.Net;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using NDav.Http;
 
 namespace NDav
 {
@@ -16,16 +17,22 @@ namespace NDav
         {
         }
 
-        public override Task<HttpWebResponse> ProcessRequestAsync(HttpWebRequest request)
+        public override async Task<HttpResponse> ProcessRequestAsync(HttpRequest request)
         {
-            WebResponse response = request.GetResponse();
-            var stream = response.GetResponseStream();
-            var resource = Repository.GetResource(request.RequestUri.AbsoluteUri);
-            byte[] output = new byte[resource.Length];
-            resource.Read(output, 0, (int)resource.Length);
-            stream.Write(output, 0, (int)resource.Length);
-            throw new NotImplementedException();
+            var resourceStream = await Repository.GetResourceAsync(request.Uri);
+            var response = new HttpResponse();
+            if (resourceStream == null)
+            {
+                response.StatusCode = HttpStatusCode.NotFound;
+            }
+            else
+            {
+                response.StatusCode = HttpStatusCode.OK;
+                var ms = new MemoryStream();
+                await resourceStream.CopyToAsync(ms);
+                response.Body = ms.ToArray();
+            }
+            return response;
         }
-
     }
 }

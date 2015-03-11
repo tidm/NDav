@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using NDav.Http;
 using NSubstitute;
 using NSubstitute.Core;
 using Xunit;
@@ -19,19 +20,19 @@ namespace NDav.Tests
         public async void If_delete_request_is_inernal_member_of_one_collection_any_other_uri_containing_this_resource_must_be_removed_by_server()
         //If the DELETE method is issued to a non-collection resource whose URIs are an internal member of one or more collections, then during DELETE processing a server must remove any URI for the resource identified by the Request-URI from collections which contain it as a member.
         {
-            var request = WebRequest.CreateHttp(BaseUri);
+            var request = new HttpRequest(new Uri(BaseUri), WebDavMethods.Delete);
             request.Method = WebDavMethods.Delete;
             var sub = Substitute.For<IWebDavResourceRepository>();
-            sub.GetResource("").Returns(new MemoryStream());
+        
             var processor = new WebDavProcessor(sub);
 
-            var newrequest = WebRequest.CreateHttp(BaseUri);
-            request.Method = WebDavMethods.Delete;
+            var newrequest = new HttpRequest(new Uri(BaseUri), WebDavMethods.Delete);
+            
             
             var response = await processor.ProcessRequestAsync(request);
             var newresponse = await processor.ProcessRequestAsync(newrequest);
 
-            Assert.Equal(HttpStatusCode.ExpectationFailed, newresponse.StatusCode);
+            //Assert.Equal(HttpStatusCode.ExpectationFailed, newresponse.StatusCode);
 
             throw new NotImplementedException();
         }

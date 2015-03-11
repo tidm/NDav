@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using NDav.Http;
 
 namespace NDav
 {
@@ -15,6 +16,6 @@ namespace NDav
             Repository = repository;
         }
 
-        public abstract Task<HttpWebResponse> ProcessRequestAsync(HttpWebRequest request);
+        public abstract Task<HttpResponse> ProcessRequestAsync(HttpRequest request);
     }
 }

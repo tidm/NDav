@@ -10,7 +10,7 @@ namespace NDav
 {
     public interface IWebDavResourceRepository
     {
-        void CreateCollection(Uri uri);
-        Stream GetResource(string uri);
+        Task CreateCollectionAsync(Uri uri);
+        Task<Stream> GetResourceAsync(Uri uri);
     }
 }

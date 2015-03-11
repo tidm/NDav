@@ -9,12 +9,11 @@ namespace NDav
 {
     public class WebDavFileResourceRepository : IWebDavResourceRepository
     {
-        public Stream GetResource(string uri)
+        public Task CreateCollectionAsync(Uri uri)
         {
             throw new NotImplementedException();
         }
-
-        public void CreateCollection(Uri uri)
+        public Task<Stream> GetResourceAsync(Uri uri)
         {
             throw new NotImplementedException();
         }
