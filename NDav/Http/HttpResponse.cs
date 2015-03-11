@@ -12,7 +12,7 @@ namespace NDav.Http
     {
         public HttpStatusCode StatusCode { get; set; }
         public IDictionary<string, string> Headers { get; private set; }
-        public Stream Body { get; set; }
+        public byte[] Body { get; set; }
     }
 }
 

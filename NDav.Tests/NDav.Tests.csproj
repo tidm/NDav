@@ -61,6 +61,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Get_Tests.cs" />
     <Compile Include="MKCOL_Tests.cs" />
     <Compile Include="TestWebDavProcessor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
