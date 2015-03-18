@@ -39,7 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateXMLResponse.cs" />
     <Compile Include="Exceptions\CollectionDoesNotAcceptMembersException.cs" />
+    <Compile Include="Exceptions\ErrorReportsException.cs" />
     <Compile Include="Exceptions\InsufficientSpaceException.cs" />
     <Compile Include="Exceptions\ResourceAncestorDoesNotExistException.cs" />
     <Compile Include="Exceptions\ResourceAncestorIsNotCollectionException.cs" />

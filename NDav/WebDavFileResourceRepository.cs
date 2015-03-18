@@ -17,5 +17,10 @@ namespace NDav
         {
             throw new NotImplementedException();
         }
+
+        public Task DeleteColletionAsync(Uri uri)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

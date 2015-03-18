@@ -12,5 +12,6 @@ namespace NDav
     {
         Task CreateCollectionAsync(Uri uri);
         Task<Stream> GetResourceAsync(Uri uri);
+        Task DeleteColletionAsync(Uri uri);   
     }
 }

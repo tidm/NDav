@@ -30,8 +30,8 @@ namespace NDav
         {
             if (_methodProcessors.ContainsKey(request.Method))
             {
-            return await _methodProcessors[request.Method].ProcessRequestAsync(request);
-        }
+                return await _methodProcessors[request.Method].ProcessRequestAsync(request);
+            }
             else
             {
                 throw new NotImplementedException(string.Format("Request method <{0}> is not implemented.", request.Method));

@@ -21,5 +21,14 @@ namespace NDav.Http
             Uri = uri;
             Method = method;
         }
+
+        public HttpRequest(Uri uri, string method, KeyValuePair<string, string> header)
+        {
+            Uri = uri;
+            Method = method;
+            Headers = new Dictionary<string, string>();
+            Headers.Add(header);
+        }
+
     }
 }
